@@ -1,0 +1,56 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Calender Generator</title>
+<style>
+#calender{
+text-align:center;
+}
+#year,button{
+margin:auto;
+padding:10px;
+text-align:center;
+}
+#display{
+dispaly:flex;
+flex-wrap:wrap;
+justify-content:space-evenly;
+}
+pre{
+margin:10px;
+padding:10px;
+font-size:15px;
+box-shadow:4px 5px 8px 0px #a7a7a7;
+}
+</style>
+</head>
+<body>
+<form name="calender" id="calender" onsubmit="calenderOf(); return false;">
+<input type="number" id="year" name="year" placeholder="Enter the year">
+<button type="submit">Generate</button>
+</form>
+<div id="dispaly"></div>
+<script>
+function calenderOf() 
+{
+const year=document.calender.year.value;
+document.getElementById('display').innerHTML=generateCalender(year);
+}
+function generateCalender(year)
+{
+let calenderHTML='';
+for (let month=1; month<=12; month++)
+{
+const monthDate=new Date(year,month-1,1);
+calenderHTML += '<pre>${monthDate.toLocaleString('default', { month:'long' })} ${year}\n';
+const firstDay=monthDate.getDay();
+calenderHTML += "<b> Sun MOn Tue Wed Thu Fri Sat</b>\n";
+for (let i=0; i<firstDay; i++)
+{
+calenderHTML += " ";
+}
+
+ 
+
