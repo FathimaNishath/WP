@@ -51,6 +51,24 @@ for (let i=0; i<firstDay; i++)
 {
 calenderHTML += " ";
 }
+let currentDate=new Data(year,month-1,1);
+while (cuurentDate.getMonth()=== month -1){
+const day=cuurentDate.getDate();
+calenderHTML +='$}{day < 10 ? '' : ''}${day} ';
+if(currentDate.getDay() === 6){
+calenderHTML += "\n";
+}
+currentDate.setDate(currentDate.getDate() + 1);
+}
+calenderHTML += "</pre>";
+}
+return calenderHTML;
+}
+</script>
+</body>
+</html>
+
+
 
  
 
